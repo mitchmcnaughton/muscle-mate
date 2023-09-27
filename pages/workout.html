@@ -1,0 +1,101 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>MMate Today's Workout</title>
+  </head>
+  
+  <body class="bg-colour">
+
+        <header class="bg-black py-8 text-center">
+            <h1 class="text-4xl text-gray-400">Muscle Mate</h1>
+            <h2 class="text-2xl mt-2 text-gray-200">Workout</h2>
+        </header>
+    
+        <main class="container mx-auto mt-12 p-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    
+                <!-- Card 1 -->
+                <div class="bg-black p-6 rounded-lg shadow-md">
+                    <div class="flex items-center justify-between">
+                        <button type="button" class="text-white bg-colour hover:bg-colour focus:ring-4 focus:outline-none focus:ring-bg-colour font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-colour dark:hover:bg-lime-400 dark:focus:ring-bg-colour">
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5h-12m0 0L5 1m-4 4L5 9"/>
+                            </svg>
+                            <span class="sr-only">Arrow</span>
+                          </button>
+                         <!-- JS will generate Date -->
+                        <span class="text-white" id="date">Today's Date</span>
+                        <button type="button" class="text-white bg-colour hover:bg-colour focus:ring-4 focus:outline-none focus:ring-bg-colour font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-colour dark:hover:bg-lime-400 dark:focus:ring-bg-colour">
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                            <span class="sr-only">Arrow</span>
+                          </button>
+                    </div>
+                    <h3 class="text-white text-xl mt-4">Workout Tracker</h3>
+                    <ul id="workoutList" class="text-white">
+                        <!-- JS will generate list here -->
+                    </ul>
+                </div>
+    
+                <!-- Card 2 -->
+                <div class="bg-black p-6 rounded-lg shadow-md">
+                    <!-- JS will generate title -->
+                    <h3 class="text-xl text-white" id="exerciseTitle">Exercise Title</h3>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-white">Weight</span>
+                        <div class="flex items-center">
+                            <button class="bg-colour text-black p-2 rounded">-</button>
+                            <span class="mx-4 text-white" id="weight">0 KG</span>
+                            <button class="bg-colour text-black p-2 rounded">+</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-white">Reps</span>
+                        <div class="flex items-center">
+                            <button class="bg-colour text-black p-2 rounded">-</button>
+                            <span class="mx-4 text-white" id="reps">0</span>
+                            <button class="bg-colour text-black p-2 rounded">+</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-white">Sets</span>
+                        <div class="flex items-center">
+                            <button class="bg-colour text-black p-2 rounded">-</button>
+                            <span class="mx-4 text-white" id="sets">0</span>
+                            <button class="bg-colour text-black p-2 rounded">+</button>
+                        </div>
+                    </div>
+    
+                    <!-- Accordion Details -->
+                    <div class="mt-8">
+                        <button class="w-full text-left text-xl bg-gray-400 p-4 rounded-t-lg" id="detailsButton">Details</button>
+                        <div class="hidden" id="detailsContent">
+                            <!-- JS will fill details here -->
+                        </div>
+                    </div>
+    
+                    <!-- Accordion Instruction Video -->
+                    <div class="mt-4">
+                        <button class="w-full text-left text-xl bg-gray-400 p-4 rounded-t-lg" id="videoButton">Instruction Video</button>
+                        <div class="hidden" id="videoContent">
+                            <!-- JS will fill video here -->
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </main>
+    
+        <!-- Include day.js for date manipulation -->
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+    <script src="../assets/js/script.js"></script>
+  </body>
+
+</html>
