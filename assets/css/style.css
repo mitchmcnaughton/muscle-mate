@@ -1,3 +1,6 @@
 .bg-colour {
     background-color: #daef68;
 }
+
+#workoutList .ui-selecting { background: #daef68; }
+#workoutList .ui-selected { background: #daef68; color: black; }

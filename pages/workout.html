@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../assets/css/reset.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>MMate Today's Workout</title>
   </head>
   
@@ -29,7 +29,7 @@
                             <span class="sr-only">Arrow</span>
                           </button>
                          <!-- JS will generate Date -->
-                        <span class="text-white" id="date">Today's Date</span>
+                        <p id="currentDay" class="lead text-2xl text-white"></p>
                         <button type="button" class="text-white bg-colour hover:bg-colour focus:ring-4 focus:outline-none focus:ring-bg-colour font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-colour dark:hover:bg-lime-400 dark:focus:ring-bg-colour">
                             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -40,6 +40,11 @@
                     <h3 class="text-white text-xl mt-4">Workout Tracker</h3>
                     <ul id="workoutList" class="text-white">
                         <!-- JS will generate list here -->
+                    <li class="mt-4">Exercise 1</li>
+                    <li class="mt-4">Exercise 2</li>
+                    <li class="mt-4">Exercise 3</li>
+                    <li class="mt-4">Exercise 4</li>
+                    <li class="mt-4">Exercise 5</li>
                     </ul>
                 </div>
     
@@ -92,9 +97,10 @@
             </div>
         </main>
     
-        <!-- Include day.js for date manipulation -->
-        <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>    
     <script src="../assets/js/script.js"></script>
   </body>
 
