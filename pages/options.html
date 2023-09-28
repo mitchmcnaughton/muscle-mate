@@ -7,32 +7,33 @@
         <title>Options</title>
         <link rel="stylesheet" href="/assets/css/reset.css">
         <link rel="stylesheet" href="/assets/css/style.css">
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
     <header>
         <h1>MuscleMate</h1>
     </header>
     <body>
-        <div id="experienceLevel" class="modal">
+        <div id="experienceLevel" class="modal bg-white p-4 shadow-lg rounded-lg">
             <div class="modal-content">
-                <h2>What is your experience level?</h1>
-                <button class="option" id="beginner">Beginner</button>
-                <button class="option" id="intermediate">Intermediate</button>
-                <button class="option" id="expert">Expert</button>
+                <h2 class="text-2x1">What is your experience level?</h2>
+                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="beginner">Beginner</button>
+                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="intermediate">Intermediate</button>
+                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="expert">Expert</button>
             </div>
         </div>
 
-        <div id="equipmentType" class="modal">
+        <div id="equipmentType" class="modal bg-white p-4 shadow-lg rounded-lg">
             <div class="modal-content">
-                <h2>Where will you be working out?</h1>
-                <button class="option" id="home">At home</button>
-                <button class="option" id="gym">At the gym</button>
+                <h2 class="text-2x1">Where will you be working out?</h2>
+                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="home">At home</button>
+                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="gym">At the gym</button>
             </div>
         </div>
 
         <div id="userSelection" class="modal">
             <div class="modal-content">
-                <h2>Your selections:</h1>
+                <h2>Your selections:</h2>
                 <p>Experience level: <span id="experience"></span></p>
                 <p>Equipment: <span id="equipment"></span></p>
                 <button id="changeSelection">Change</button>
