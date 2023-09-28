@@ -1,32 +1,20 @@
-.landing-body{
-    background-color: #a28089;
-}
 
 .page-header {
-    
-    height: 300px !important;
     font-family: "Dela Gothic One";
-    background-color: #a28089;
-    line-height: 200px;
+    line-height: 150px;
 }
-
-
 
 
 .buttons{
-    background-color: #ffa8B6;
-    height: 500px!important;
+    height: 600px;
     font-family: "Dela Gothic One";
-    
 
 }
 
-.landing-button {
-    background-color: #a28089;
-}
+
 
 button:hover {
     transition-duration: 0.1s;
-    background-color: #8b6f77;
+    background-color: rgb(36, 35, 35);
   }
   
