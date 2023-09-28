@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Options</title>
+        <link rel="stylesheet" href="/assets/css/reset.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+    </head>
+
+    <header>
+        <h1>MuscleMate</h1>
+    </header>
+    <body>
+        <div id="experienceLevel" class="modal">
+            <div class="modal-content">
+                <h2>What is your experience level?</h1>
+                <button class="option" id="beginner">Beginner</button>
+                <button class="option" id="intermediate">Intermediate</button>
+                <button class="option" id="expert">Expert</button>
+            </div>
+        </div>
+
+        <div id="equipmentType" class="modal">
+            <div class="modal-content">
+                <h2>Where will you be working out?</h1>
+                <button class="option" id="home">At home</button>
+                <button class="option" id="gym">At the gym</button>
+            </div>
+        </div>
+
+        <div id="userSelection" class="modal">
+            <div class="modal-content">
+                <h2>Your selections:</h1>
+                <p>Experience level: <span id="experience"></span></p>
+                <p>Equipment: <span id="equipment"></span></p>
+                <button id="changeSelection">Change</button>
+                <button id="submitSelection">Submit</button>
+            </div>
+        </div>
+
+        <script src="/assets/js/script.js"></script>
+
+    </body>
+
+</html>
