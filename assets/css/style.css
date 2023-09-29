@@ -4,3 +4,11 @@
 
 #workoutList .ui-selecting { background: #daef68; }
 #workoutList .ui-selected { background: #daef68; color: black; }
+
+.video-result {
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
