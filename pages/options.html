@@ -4,40 +4,42 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Options</title>
         <link rel="stylesheet" href="/assets/css/reset.css">
         <link rel="stylesheet" href="/assets/css/style.css">
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <header>
-        <h1>MuscleMate</h1>
+    <header class= "page-header align-middle bg-colour text-6xl w-full py-8 text-center">
+        <h1 class="align-middle text-black">MuscleMate</h1>
     </header>
-    <body>
-        <div id="experienceLevel" class="modal bg-white p-4 shadow-lg rounded-lg">
+
+    <body class="bg-colour">
+        <div id="experienceLevel" class="modal bg-colour p-4 shadow-lg rounded-lg">
             <div class="modal-content">
                 <h2 class="text-2x1">What is your experience level?</h2>
-                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="beginner">Beginner</button>
-                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="intermediate">Intermediate</button>
-                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="expert">Expert</button>
+                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="beginner">Beginner</button>
+                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="intermediate">Intermediate</button>
+                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="expert">Expert</button>
             </div>
         </div>
 
-        <div id="equipmentType" class="modal bg-white p-4 shadow-lg rounded-lg">
+        <div id="equipmentType" class="modal bg-colour p-4 shadow-lg rounded-lg">
             <div class="modal-content">
                 <h2 class="text-2x1">Where will you be working out?</h2>
-                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="home">At home</button>
-                <button class="option bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="gym">At the gym</button>
+                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="home">At home</button>
+                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="gym">At the gym</button>
             </div>
         </div>
 
-        <div id="userSelection" class="modal">
+        <div id="userSelection" class="modal bg-colour p-4 shadow-lg rounded-lg" style="display: none;">
             <div class="modal-content">
-                <h2>Your selections:</h2>
+                <h2 class="text-2x1">Your selections:</h2>
                 <p>Experience level: <span id="experience"></span></p>
                 <p>Equipment: <span id="equipment"></span></p>
-                <button id="changeSelection">Change</button>
-                <button id="submitSelection">Submit</button>
+                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="changeSelection">Change</button>
+                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="submitSelection">Submit</button>
             </div>
         </div>
 
