@@ -21,7 +21,7 @@
             <!-- Card 1 -->
             <div class="bg-black p-6 rounded-lg shadow-md">
                 <div class="flex items-center justify-between">
-                    <button type="button" class="text-black bg-colour hover:bg-colour focus:ring-4 focus:outline-none focus:ring-bg-colour font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-colour dark:hover:bg-lime-400 dark:focus:ring-bg-colour">
+                    <button type="button" id="previousDateButton" class="text-black bg-colour hover:bg-colour focus:ring-4 focus:outline-none focus:ring-bg-colour font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-colour dark:hover:bg-lime-400 dark:focus:ring-bg-colour">
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5h-12m0 0L5 1m-4 4L5 9"/>
                         </svg>
@@ -29,7 +29,7 @@
                     </button>
                     <!-- JS will generate Date -->
                     <p id="currentDay" class="lead text-2xl text-white"></p>
-                    <button type="button" class="text-black bg-colour hover:bg-colour focus:ring-4 focus:outline-none focus:ring-bg-colour font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-colour dark:hover:bg-lime-400 dark:focus:ring-bg-colour">
+                    <button type="button" id="nextDateButton" class="text-black bg-colour hover:bg-colour focus:ring-4 focus:outline-none focus:ring-bg-colour font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-colour dark:hover:bg-lime-400 dark:focus:ring-bg-colour">
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                         </svg>
@@ -60,7 +60,6 @@
                         <button class="bg-colour text-black p-2 rounded decrement-weight">-</button>
                         <span class="mx-4 text-white" id="weight">0 KG</span>
                         <button class="bg-colour text-black p-2 rounded increment-weight">+</button>
-
                     </div>
                 </div>
                 <div class="flex items-center justify-between mt-4">
@@ -69,7 +68,6 @@
                         <button class="bg-colour text-black p-2 rounded decrement-reps">-</button>
                         <span class="mx-4 text-white" id="reps">0</span>
                         <button class="bg-colour text-black p-2 rounded increment-reps">+</button>
-
                     </div>
                 </div>
                 <div class="flex items-center justify-between mt-4">
@@ -80,7 +78,6 @@
                         <button class="bg-colour text-black p-2 rounded increment-sets">+</button>
                     </div>
                 </div>
-
                 <!-- Accordion Details -->
                 <div class="mt-8">
                     <button class="w-full text-left text-xl bg-gray-400 p-4 rounded-t-lg" id="detailsButton">Details</button>
@@ -88,22 +85,16 @@
                         <!-- JS will fill details here -->
                     </div>
                 </div>
-
                 <!-- Accordion Instruction Video -->
                 <div class="mt-4">
                     <button class="w-full text-left text-xl bg-gray-400 p-4 rounded-t-lg" id="videoButton">Instruction Video</button>
                     <div class="hidden" id="videoContent">
                         <!-- JS will fill video here -->
-                    </div>
-                    
+                    </div>   
                     <!-- YouTube Search Results -->
                     <div id="videoResults" class="mt-4">
-
                     </div>
-                    
-
                 </div>
-
             </div>
         </div>
     </main>
@@ -113,5 +104,4 @@
     <script src="https://apis.google.com/js/client.js?onload=onGAPILoad"></script>
     <script src="../assets/js/script.js"></script>
 </body>
-
 </html>

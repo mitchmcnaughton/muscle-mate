@@ -1,25 +1,31 @@
 $(document).ready(function() {
     const currentDay = $("#currentDay");
-    currentDay.text(dayjs().format("D, dddd, MMMM"));
-
     let selectedExercise = $("#workoutList > li").first().text();
+    let currentDate = dayjs();
+
+    // Initialize the accordion.
     initializeExerciseSelection(selectedExercise);
 
-    $(document).ready(function() {
-        $("#workoutList > li").on("click", handleExerciseClick);
-        $('#videoButton').on('click', toggleAccordion);
-        $("#saveWorkout").on("click", saveWorkoutData);
-        $("#previousDateButton").on("click", function() { navigateDate(-1); });
-        $("#nextDateButton").on("click", function() { navigateDate(1); });
+    $("#workoutList > li").on("click", handleExerciseClick);
+    $('#videoButton').on('click', toggleAccordion);
+    $("#saveWorkout").on("click", saveWorkoutData);
+    $("#previousDateButton").on("click", function() { navigateDate(-1); });
+    $("#nextDateButton").on("click", function() { navigateDate(1); });
     
-        initializeExerciseSelection($("#workoutList > li").first().text());
-    });
-    
+    $('.increment-weight').click(() => updateStat('#weight', 5, ' KG'));
+    $('.decrement-weight').click(() => updateStat('#weight', -5, ' KG'));
+    $('.increment-reps').click(() => updateStat('#reps', 1));
+    $('.decrement-reps').click(() => updateStat('#reps', -1));
+    $('.increment-sets').click(() => updateStat('#sets', 1));
+    $('.decrement-sets').click(() => updateStat('#sets', -1));
+
+    // Sets the first exercise in the list to be selected and updates the UI accordingly.
     function initializeExerciseSelection(exercise) {
         $("#workoutList > li").first().addClass('ui-selected');
         updateExerciseUI(exercise);
-    }
-    
+    } 
+
+    // Handles the click event for the exercise list.
     function handleExerciseClick() {
         $("#workoutList > li").removeClass('ui-selected');
         $(this).addClass('ui-selected');
@@ -28,6 +34,7 @@ $(document).ready(function() {
         collapseAccordion();
     }
     
+    // Updates the UI to display the selected exercise.
     function updateExerciseUI(exercise) {
         console.log('Updating UI for:', exercise);
         $('#exerciseTitle').text(exercise).css('color', 'white');
@@ -37,6 +44,7 @@ $(document).ready(function() {
         $('#videoContent iframe').remove();
     }
     
+    // Toggles the accordion open and closed.
     function toggleAccordion() {
         const content = $('#videoContent');
         
@@ -50,10 +58,12 @@ $(document).ready(function() {
         }
     }
     
+    // Closes the accordion.
     function collapseAccordion() {
         $('#videoContent').addClass('hidden');
     }    
 
+    // Searches YouTube for videos related to the selected exercise.
     function searchForVideos(selectedExercise) {
         console.log('Searching for videos for:', selectedExercise);
         loadClient().then(() => {
@@ -61,11 +71,13 @@ $(document).ready(function() {
         });
     }
 
+    // Loads the YouTube API client library.
     function loadClient() {
         gapi.client.setApiKey("AIzaSyAATQ2DRkyB9kGVU41kEhC34tcRZrxQ9pA");
         return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest");
     }
 
+    // Executes the search for videos.
     function execute(selectedExercise) {
         return gapi.client.youtube.search.list({
             "part": "snippet",
@@ -78,6 +90,7 @@ $(document).ready(function() {
         });
     }
 
+    // Displays the search results.
     function displaySearchResults(response) {
         let items = response.result.items;
         let resultsHtml = items.map((item) => {
@@ -92,32 +105,36 @@ $(document).ready(function() {
         $('#videoResults').html(resultsHtml);
         $('#videoResults').on('click', '.video-result', displayVideo);
     }
-    
 
+    // Displays the selected video.
     function displayVideo() {
         const videoId = $(this).data('video-id');
         const iframe = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
         $('#videoContent').html(iframe);
     }
 
+    // Sets the video to be displayed.
     function setNewVideo(src) {
         $('#videoContent iframe').remove();  // Remove existing iframe
         const iframe = `<iframe width="560" height="315" src="${src}" frameborder="0" allowfullscreen=""></iframe>`;
         $('#videoContent').append(iframe);   // Append new iframe
     }    
 
+    // Updates the specified stat by the specified increment.
     function updateStat(id, increment, postText='') {
         const currentValue = parseInt($(id).text());
         $(id).text(currentValue + increment + postText);
     }
 
-    $('.increment-weight').click(() => updateStat('#weight', 5, ' KG'));
-    $('.decrement-weight').click(() => updateStat('#weight', -5, ' KG'));
-    $('.increment-reps').click(() => updateStat('#reps', 1));
-    $('.decrement-reps').click(() => updateStat('#reps', -1));
-    $('.increment-sets').click(() => updateStat('#sets', 1));
-    $('.decrement-sets').click(() => updateStat('#sets', -1));
 
+    // Navigates to the previous or next day.
+    function navigateDate(offset) {
+        currentDate = currentDate.add(offset, 'day');
+        currentDay.text(currentDate.format("D, dddd, MMMM"));
+        loadWorkoutData(currentDate.format('YYYY-MM-DD'));
+    }
+
+    // Saves the workout data to local storage.
     function saveWorkoutData() {
         const today = dayjs().format('YYYY-MM-DD');
         const allDataForToday = {
@@ -131,23 +148,18 @@ $(document).ready(function() {
         localStorage.setItem(today, JSON.stringify(allDataForToday));
     }
 
+    // Display the current day on page load.
+    currentDay.text(dayjs().format("D, dddd, MMMM"));
+    
+    // Load the workout data for the current day.
     function loadWorkoutData(date) {
         const data = localStorage.getItem(date) || "{}";
         const allDataForTheDate = JSON.parse(data);
         const exerciseData = allDataForTheDate[selectedExercise] || {};
-
+    
         $('#weight').text(exerciseData.weight || "0 KG");
         $('#reps').text(exerciseData.reps || "0");
         $('#sets').text(exerciseData.sets || "0");
-    }
+    }    
 
-    function navigateDate(offset) {
-        return function() {
-            const newDate = dayjs(currentDay.text(), 'D, dddd, MMMM').add(offset, 'day').format('YYYY-MM-DD');
-            currentDay.text(dayjs(newDate).format("D, dddd, MMMM"));
-            loadWorkoutData(newDate);
-        }
-    }
-
-    loadWorkoutData(dayjs().format('YYYY-MM-DD'));
 });
