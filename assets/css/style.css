@@ -21,6 +21,26 @@ header{
     transition-duration: 0.1s;
     background-color: rgb(36, 35, 35);
   }
+
+.bg-colour {
+    background-color: #daef68;
+}
+
+.page-header {
+    font-family: "Dela Gothic One";
+    line-height: 150px;
+}
+
+.buttons {
+    height: 100px;
+    font-family: "Dela Gothic One";
+
+}
+
+button:hover {
+    transition-duration: 0.1s;
+    background-color: rgb(36, 35, 35);
+  }
   
 .bg-colour {
     background-color: #daef68 !important;
@@ -35,4 +55,8 @@ header{
 
 .hidden {
     display: none;
+}
+.text-2x1 {
+    font-family: "Dela Gothic One";
+    line-height: 65px; 
 }
