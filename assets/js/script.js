@@ -3,6 +3,7 @@ var equipmentTypeModal = document.getElementById("equipmentType");
 var userSelectionModal = document.getElementById("userSelection");
 var experienceLevel = "";
 var equipmentType = "";
+var selectionsMade = false;
 
 // Function to open a modal
 function openModal(modal) {
@@ -24,19 +25,26 @@ document.querySelectorAll(".option").forEach(function (button) {
         } else if (button.parentElement === equipmentTypeModal.querySelector(".modal-content")) {
             equipmentType = button.textContent;
             closeModal(equipmentTypeModal);
-            openModal(userSelectionModal);
-            document.getElementById("experience").textContent = experienceLevel;
-            document.getElementById("equipment").textContent = equipmentType;
+            if (experienceLevel && equipmentType) {
+                selectionsMade = true;
+                openModal(userSelectionModal);
+                document.getElementById("experience").textContent = experienceLevel;
+                document.getElementById("equipment").textContent = equipmentType;
         }
+    }
     });
 });
 
 // Attach event listeners to change and submit buttons
 document.getElementById("changeSelection").addEventListener("click", function () {
+    selectionsMade = false;
     openModal(experienceLevelModal);
 });
 
 document.getElementById("submitSelection").addEventListener("click", function () {
-    // Handle submission, e.g., send data to a server
-    alert("Your selection is submitted!");
+    if (selectionsMade) {
+        alert("Your selection is submitted!");
+    } else {
+        alert("Please make both selections before submitting.");
+    }
 });
