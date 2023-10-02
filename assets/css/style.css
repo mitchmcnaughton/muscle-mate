@@ -22,3 +22,17 @@ header{
     background-color: rgb(36, 35, 35);
   }
   
+.bg-colour {
+    background-color: #daef68 !important;
+}
+
+#workoutList .ui-selecting { background: #daef68; }
+#workoutList .ui-selected { background: #daef68; color: black; }
+
+.video-result {
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
