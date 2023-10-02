@@ -95,6 +95,7 @@ function retrieveWorkoutData(){
         const listItem = document.createElement('li');
         listItem.textContent = exerciseName;
         exerciseList.appendChild(listItem);
+        
     }
         
         } else {
