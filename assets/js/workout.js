@@ -1,30 +1,31 @@
-function retrieveWorkoutData(){
-
-    // Retrieve the JSON data from localStorage
+function retrieveWorkoutData() {
+    // Retrieve the exercises data from localStorage
     const totalWorkoutData = localStorage.getItem('totalWorkoutData');
-
-    // Parse the stored JSON data back into an object
     const totalWorkout = JSON.parse(totalWorkoutData);
 
-    // Check if the data exists in localStorage
     if (totalWorkout) {
-    // Get a reference to the <ul> element
-    const exerciseList = document.getElementById('workoutList');
-    
-    // Loops through the exercise data and appends the name of each exersize to the list
-    for (let i = 0; i < totalWorkout.length; i++) {
-        const exerciseName = totalWorkout[i].name;
-        const listItem = document.createElement('li');
-        listItem.textContent = exerciseName;
-        exerciseList.appendChild(listItem);
+        const exerciseList = document.getElementById('workoutList');
         
-    }
-        
-        } else {
-        console.log('Exercise data not found in localStorage.');
-        }
+        // Loop through the exercise data
+        for (let i = 0; i < totalWorkout.length; i++) {
+            const exerciseName = totalWorkout[i].name;
+            const listItem = document.createElement('li');
+            listItem.textContent = exerciseName;
 
-    
+            // Check for the last recorded date for the exercise
+            const exerciseData = JSON.parse(localStorage.getItem(exerciseName) || "{}");
+            const lastRecordedDate = Object.keys(exerciseData).sort().pop();
+
+            if (lastRecordedDate) {
+                const { weight, reps, sets } = exerciseData[lastRecordedDate];
+                listItem.textContent += ` - Last recorded on ${lastRecordedDate}: ${weight} / ${reps} reps / ${sets} sets`;
+            }
+            
+            exerciseList.appendChild(listItem);
+        }
+    } else {
+        console.log('Exercise data not found in localStorage.');
+    }
 }
 
 retrieveWorkoutData()
@@ -165,32 +166,30 @@ $(document).ready(function() {
         loadWorkoutData(currentDate.format('YYYY-MM-DD'));
     }
 
-    // Saves the workout data to local storage.
-    function saveWorkoutData() {
-        const today = dayjs().format('YYYY-MM-DD');
-        const allDataForToday = {
-            ...JSON.parse(localStorage.getItem(today) || "{}"),
-            [selectedExercise]: {
-                weight: $('#weight').text(),
-                reps: $('#reps').text(),
-                sets: $('#sets').text()
-            }
-        };
-        localStorage.setItem(today, JSON.stringify(allDataForToday));
-    }
+// Saves the workout data to local storage.
+function saveWorkoutData() {
+    const date = currentDate.format('YYYY-MM-DD');
 
-    // Display the current day on page load.
-    currentDay.text(dayjs().format("D, dddd, MMMM"));
-    
-    // Load the workout data for the current day.
-    function loadWorkoutData(date) {
-        const data = localStorage.getItem(date) || "{}";
-        const allDataForTheDate = JSON.parse(data);
-        const exerciseData = allDataForTheDate[selectedExercise] || {};
-    
-        $('#weight').text(exerciseData.weight || "0 KG");
-        $('#reps').text(exerciseData.reps || "0");
-        $('#sets').text(exerciseData.sets || "0");
-    }    
+    // Retrieve the exercise data for the selected exercise or initialize a new object if it doesn't exist
+    let exerciseData = JSON.parse(localStorage.getItem(selectedExercise) || "{}");
+
+    exerciseData[date] = {
+        weight: $('#weight').text(),
+        reps: $('#reps').text(),
+        sets: $('#sets').text()
+    };
+
+    localStorage.setItem(selectedExercise, JSON.stringify(exerciseData));
+}
+
+// Load the workout data for the specified date.
+function loadWorkoutData(date) {
+    const exerciseData = JSON.parse(localStorage.getItem(selectedExercise) || "{}");
+    const workoutForTheDate = exerciseData[date] || {};
+
+    $('#weight').text(workoutForTheDate.weight || "0 KG");
+    $('#reps').text(workoutForTheDate.reps || "0");
+    $('#sets').text(workoutForTheDate.sets || "0");
+}
 
 });
