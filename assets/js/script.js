@@ -43,7 +43,7 @@ document.getElementById("changeSelection").addEventListener("click", function ()
 
 document.getElementById("submitSelection").addEventListener("click", function () {
     if (selectionsMade) {
-        alert("Your selection is submitted!");
+        window.location.href = "pages/exercises.html";
     } else {
         alert("Please make both selections before submitting.");
     }
