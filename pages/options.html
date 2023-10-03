@@ -16,16 +16,18 @@
     </header>
 
     <body class="bg-colour">
-        <div id="experienceLevel" class="modal bg-colour p-4 shadow-lg rounded-lg">
-            <div class="modal-content">
-                <h2 class="text-2x1">What is your experience level?</h2>
-                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="beginner">Beginner</button>
-                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="intermediate">Intermediate</button>
-                <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="expert">Expert</button>
+        <div class="flex justify-center items-start">
+            <div id="experienceLevel" class="modal bg-colour p-4 shadow-lg rounded-lg max-w-sm mx-auto bg-white overflow-hidden">
+                <div class="modal-content">
+                    <h2 class="text-2x1">What is your experience level?</h2>
+                    <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="beginner">Beginner</button>
+                    <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="intermediate">Intermediate</button>
+                    <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="expert">Expert</button>
+                </div>
             </div>
-        </div>
+        </div>  
 
-        <div id="equipmentType" class="modal bg-colour p-4 shadow-lg rounded-lg">
+        <div id="equipmentType" class="modal bg-colour p-4 shadow-lg rounded-lg max-w-sm mx-auto bg-white overflow-hidden">
             <div class="modal-content">
                 <h2 class="text-2x1">Where will you be working out?</h2>
                 <button class="option buttons bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="home">At home</button>
@@ -33,7 +35,7 @@
             </div>
         </div>
 
-        <div id="userSelection" class="modal bg-colour p-4 shadow-lg rounded-lg" style="display: none;">
+        <div id="userSelection" class="modal bg-colour p-4 shadow-lg rounded-lg max-w-sm mx-auto bg-white overflow-hidden" style="display: none;">
             <div class="modal-content">
                 <h2 class="text-2x1">Your selections:</h2>
                 <p>Experience level: <span id="experience"></span></p>
