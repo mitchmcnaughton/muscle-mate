@@ -126,7 +126,6 @@ $(document).ready(function() {
         $(id).text(currentValue + increment + postText);
     }
 
-
     // Navigates to the previous or next day.
     function navigateDate(offset) {
         currentDate = currentDate.add(offset, 'day');
