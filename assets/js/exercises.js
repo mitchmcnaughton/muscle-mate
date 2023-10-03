@@ -1,56 +1,3 @@
-
-var experienceLevelModal = document.getElementById("experienceLevel");
-var equipmentTypeModal = document.getElementById("equipmentType");
-var userSelectionModal = document.getElementById("userSelection");
-var changeButtonModal = document.getElementById("changeSelection");
-var experienceLevel = "";
-var equipmentType = "";
-var selectionsMade = false;
-
-// Function to open a modal
-function openModal(modal) {
-    modal.style.display = "block";
-}
-
-// Function to close a modal
-function closeModal(modal) {
-    modal.style.display = "none";
-}
-
-// Attach event listeners to the options buttons
-document.querySelectorAll(".option").forEach(function (button) {
-    button.addEventListener("click", function () {
-        if (button.parentElement === experienceLevelModal.querySelector(".modal-content")) {
-            experienceLevel = button.textContent;
-            closeModal(experienceLevelModal);
-            openModal(equipmentTypeModal);
-        } else if (button.parentElement === equipmentTypeModal.querySelector(".modal-content")) {
-            equipmentType = button.textContent;
-            closeModal(equipmentTypeModal);
-            if (experienceLevel && equipmentType) {
-                selectionsMade = true;
-                openModal(userSelectionModal);
-                document.getElementById("experience").textContent = experienceLevel;
-                document.getElementById("equipment").textContent = equipmentType;
-        }
-    }
-    });
-});
-console.log(document.getElementById("changeSelection"))
-// Attach event listeners to change and submit buttons
-changeButtonModal.addEventListener("click", function () {
-    selectionsMade = false;
-    openModal(experienceLevelModal);
-});
-
-document.getElementById("submitSelection").addEventListener("click", function () {
-    if (selectionsMade) {
-        window.location.href = "pages/exercises.html";
-    } else {
-        alert("Please make both selections before submitting.");
-    }
-});
-
 // Dropdown elements for BICEPS
 const bicepsDropdownTrigger = document.querySelector('.biceps-trigger'); 
 let bicepsHideTimeout; 
@@ -297,6 +244,7 @@ function fetchExerciseDetails(exerciseName) {
     });
 }
 
+
 //still not sure how paul is storing the data but can be easily changed!
 
 function storeWorkoutData(){
@@ -373,35 +321,4 @@ function storeWorkoutData(){
 
 //calling it here to test retrieving the data
 storeWorkoutData()
-
-function retrieveWorkoutData(){
-
-    // Retrieve the JSON data from localStorage
-    const totalWorkoutData = localStorage.getItem('totalWorkoutData');
-
-    // Parse the stored JSON data back into an object
-    const totalWorkout = JSON.parse(totalWorkoutData);
-
-    // Check if the data exists in localStorage
-    if (totalWorkout) {
-    // Get a reference to the <ul> element
-    const exerciseList = document.getElementById('workoutList');
-    
-    // Loops through the exercise data and appends the name of each exersize to the list
-    for (let i = 0; i < totalWorkout.length; i++) {
-        const exerciseName = totalWorkout[i].name;
-        const listItem = document.createElement('li');
-        listItem.textContent = exerciseName;
-        exerciseList.appendChild(listItem);
-        
-    }
-        
-        } else {
-        console.log('Exercise data not found in localStorage.');
-        }
-
-    
-}
-
-retrieveWorkoutData()
 
