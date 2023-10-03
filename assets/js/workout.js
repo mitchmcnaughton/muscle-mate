@@ -1,3 +1,34 @@
+function retrieveWorkoutData(){
+
+    // Retrieve the JSON data from localStorage
+    const totalWorkoutData = localStorage.getItem('totalWorkoutData');
+
+    // Parse the stored JSON data back into an object
+    const totalWorkout = JSON.parse(totalWorkoutData);
+
+    // Check if the data exists in localStorage
+    if (totalWorkout) {
+    // Get a reference to the <ul> element
+    const exerciseList = document.getElementById('workoutList');
+    
+    // Loops through the exercise data and appends the name of each exersize to the list
+    for (let i = 0; i < totalWorkout.length; i++) {
+        const exerciseName = totalWorkout[i].name;
+        const listItem = document.createElement('li');
+        listItem.textContent = exerciseName;
+        exerciseList.appendChild(listItem);
+        
+    }
+        
+        } else {
+        console.log('Exercise data not found in localStorage.');
+        }
+
+    
+}
+
+retrieveWorkoutData()
+
 $(document).ready(function() {
     const currentDay = $("#currentDay");
     let selectedExercise = $("#workoutList > li").first().text();
