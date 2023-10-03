@@ -1,6 +1,7 @@
 var experienceLevelModal = document.getElementById("experienceLevel");
 var equipmentTypeModal = document.getElementById("equipmentType");
 var userSelectionModal = document.getElementById("userSelection");
+var changeButtonModal = document.getElementById("changeSelection");
 var experienceLevel = "";
 var equipmentType = "";
 var selectionsMade = false;
@@ -34,9 +35,9 @@ document.querySelectorAll(".option").forEach(function (button) {
     }
     });
 });
-
+console.log(document.getElementById("changeSelection"))
 // Attach event listeners to change and submit buttons
-document.getElementById("changeSelection").addEventListener("click", function () {
+changeButtonModal.addEventListener("click", function () {
     selectionsMade = false;
     openModal(experienceLevelModal);
 });
