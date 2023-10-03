@@ -1,20 +1,56 @@
+*{
+    font-family: 'Overpass', sans-serif;
+}
+
+header{
+    font-family: "Dela Gothic One", sans-serif !important;
+}
 
 .page-header {
-    font-family: "Dela Gothic One";
     line-height: 150px;
 }
 
 
 .buttons{
-    height: 600px;
+    height: 700px;
+    font-family: "Dela Gothic One", sans-serif !important;
+
+}
+
+.landing-button:hover {
+    transition-duration: 0.1s;
+    background-color: rgb(36, 35, 35);
+  }
+
+
+.page-header {
+    font-family: "Dela Gothic One";
+    line-height: 400px;
+}
+
+.buttons {
+    
     font-family: "Dela Gothic One";
 
 }
 
 
-
-button:hover {
-    transition-duration: 0.1s;
-    background-color: rgb(36, 35, 35);
-  }
   
+.bg-colour {
+    background-color: #daef68 !important;
+}
+
+#workoutList .ui-selecting { background: #daef68; }
+#workoutList .ui-selected { background: #daef68; color: black; }
+
+.video-result {
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+.text-2x1 {
+    font-family: "Dela Gothic One";
+    line-height: 65px; 
+}

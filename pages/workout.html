@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMate Today's Workout</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-colour">
+    <header class="bg-black py-8 text-center">
+        <h1 class="text-4xl text-gray-400">Muscle Mate</h1>
+        <h2 class="text-2xl mt-2 text-gray-200">Workout</h2>
+    </header>
+    <main class="container mx-auto mt-12 p-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Card 1 -->
+            <div class="bg-black p-6 rounded-lg shadow-md">
+                <div class="flex items-center justify-between">
+                    <button type="button" id="previousDateButton" class="text-black bg-colour hover:bg-colour focus:ring-4 focus:outline-none focus:ring-bg-colour font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-colour dark:hover:bg-lime-400 dark:focus:ring-bg-colour">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5h-12m0 0L5 1m-4 4L5 9"/>
+                        </svg>
+                        <span class="sr-only">Arrow</span>
+                    </button>
+                    <!-- JS will generate Date -->
+                    <p id="currentDay" class="lead text-2xl text-white"></p>
+                    <button type="button" id="nextDateButton" class="text-black bg-colour hover:bg-colour focus:ring-4 focus:outline-none focus:ring-bg-colour font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-colour dark:hover:bg-lime-400 dark:focus:ring-bg-colour">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                        <span class="sr-only">Arrow</span>
+                    </button>
+                </div>
+                <h3 class="text-white text-xl mt-4">Exercise List</h3>
+                <ul id="workoutList" class="text-white font-medium text-xl">
+                    <!-- JS will generate list here -->
+
+                </ul>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="bg-black p-6 rounded-lg shadow-md">
+                <!-- JS will generate title -->
+                <div class ="flex justify-between items-center">
+                <h3 class="text-xl text-white" id="exerciseTitle">Exercise Title</h3> 
+                <button type="button" id="saveWorkout" class="text-xl text-black bg-colour font-medium rounded-lg px-5 py-2.5 mr-2 mb-2">Save Workout</button>
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-white text-xl">Weight</span>
+                    <div class="flex items-center">
+                        <button class="bg-colour text-black p-2 rounded decrement-weight">-</button>
+                        <span class="mx-4 text-white" id="weight">0 KG</span>
+                        <button class="bg-colour text-black p-2 rounded increment-weight">+</button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-white text-xl">Reps</span>
+                    <div class="flex items-center">
+                        <button class="bg-colour text-black p-2 rounded decrement-reps">-</button>
+                        <span class="mx-4 text-white" id="reps">0</span>
+                        <button class="bg-colour text-black p-2 rounded increment-reps">+</button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-white text-xl">Sets</span>
+                    <div class="flex items-center">
+                        <button class="bg-colour text-black p-2 rounded decrement-sets">-</button>
+                        <span class="mx-4 text-white" id="sets">0</span>
+                        <button class="bg-colour text-black p-2 rounded increment-sets">+</button>
+                    </div>
+                </div>
+                <!-- Accordion Details -->
+                <div class="mt-8">
+                    <button class="w-full text-left text-xl bg-gray-400 p-4 rounded-t-lg" id="detailsButton">Details</button>
+                    <div class="hidden" id="detailsContent">
+                        <!-- JS will fill details here -->
+                    </div>
+                </div>
+                <!-- Accordion Instruction Video -->
+                <div class="mt-4">
+                    <button class="w-full text-left text-xl bg-gray-400 p-4 rounded-t-lg" id="videoButton">Instruction Video</button>
+                    <div class="hidden" id="videoContent">
+                        <!-- JS will fill video here -->
+                    </div>   
+                    <!-- YouTube Search Results -->
+                    <div id="videoResults" class="mt-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=onGAPILoad"></script>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
