@@ -45,7 +45,7 @@ changeButtonModal.addEventListener("click", function () {
 
 document.getElementById("submitSelection").addEventListener("click", function () {
     if (selectionsMade) {
-        window.location.href = "pages/exercises.html";
+        window.location.href = "https://mitchmcnaughton.github.io/muscle-mate/pages/exercises.html";
     } else {
         alert("Please make both selections before submitting.");
     }
