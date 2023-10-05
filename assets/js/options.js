@@ -59,7 +59,7 @@ changeButtonModal.addEventListener("click", function () {
 });
 
 // Attach event listener to submit button
-document.getElementById("submitSelection").addEventListener("click", function () {
+document.getElementById("submitButton").addEventListener("click", function () {
     if (selectionsMade) {
         // Redirect to exercises.html
         window.location.href = 'https://mitchmcnaughton.github.io/muscle-mate/pages/exercises.html';
