@@ -178,6 +178,9 @@ function updateDropdownOptions(muscle) {
             console.error('Error fetching exercise data:', error);
         });
 }
+// Retrieve user preferences from local storage
+const experiencePreference = localStorage.getItem("experienceLevel");
+const equipmentPreference = localStorage.getItem("equipmentType");
 
 // Trigger fetching data for each muscle group
 ['biceps', 'triceps', 'chest', 'lats', 'glutes', 'hamstrings', 'calves'].forEach((muscle) => {
@@ -234,6 +237,7 @@ function fetchExerciseDetails(exerciseName) {
                 <p>Muscle: ${exerciseData.muscle}</p>
                 <p>Equipment: ${exerciseData.equipment}</p>
                 <p>Difficulty: ${exerciseData.difficulty}</p>
+                <p>Instructions: ${exerciseData.instructions}</p> 
             `;
         } else {
             console.error('Exercise data not found');
