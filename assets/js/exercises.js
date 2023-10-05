@@ -163,7 +163,7 @@ function updateDropdownOptions(muscle) {
                 const option = document.createElement('a');
                 option.href = '#'; 
                 option.setAttribute('data-exercise-id', exerciseId);
-                option.classList.add('possibleExercise', 'block', 'px-4', 'py-2', 'text-gray-800', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-700');
+                option.classList.add('block', 'px-4', 'py-2', 'text-gray-800', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-700');
                 option.textContent = exerciseName;
                 dropdown.appendChild(option);
 
@@ -178,6 +178,9 @@ function updateDropdownOptions(muscle) {
             console.error('Error fetching exercise data:', error);
         });
 }
+// Retrieve user preferences from local storage
+const experiencePreference = localStorage.getItem("experienceLevel");
+const equipmentPreference = localStorage.getItem("equipmentType");
 
 // Trigger fetching data for each muscle group
 ['biceps', 'triceps', 'chest', 'lats', 'glutes', 'hamstrings', 'calves'].forEach((muscle) => {
@@ -234,6 +237,7 @@ function fetchExerciseDetails(exerciseName) {
                 <p>Muscle: ${exerciseData.muscle}</p>
                 <p>Equipment: ${exerciseData.equipment}</p>
                 <p>Difficulty: ${exerciseData.difficulty}</p>
+                <p>Instructions: ${exerciseData.instructions}</p> 
             `;
         } else {
             console.error('Exercise data not found');
