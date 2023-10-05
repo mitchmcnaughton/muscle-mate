@@ -34,114 +34,7 @@ document.querySelectorAll(".option").forEach(function (button) {
                 document.getElementById("equipment").textContent = equipmentType;
         }
     }
-<<<<<<< HEAD
     });
-=======
-    
-    // Closes the accordion.
-    function collapseAccordion() {
-        $('#videoContent').addClass('hidden');
-    }    
-
-    // Searches YouTube for videos related to the selected exercise.
-    function searchForVideos(selectedExercise) {
-        console.log('Searching for videos for:', selectedExercise);
-        loadClient().then(() => {
-            execute(selectedExercise);
-        });
-    }
-
-    // Loads the YouTube API client library.
-    function loadClient() {
-        gapi.client.setApiKey("AIzaSyAATQ2DRkyB9kGVU41kEhC34tcRZrxQ9pA");
-        return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest");
-    }
-
-    // Executes the search for videos.
-    function execute(selectedExercise) {
-        return gapi.client.youtube.search.list({
-            "part": "snippet",
-            "maxResults": 3,
-            "order": "relevance",
-            "q": selectedExercise + " exercise instructional video"
-        })
-        .then(displaySearchResults, function(err) {
-            console.error("Execute error", err);
-        });
-    }
-
-    // Displays the search results.
-    function displaySearchResults(response) {
-        let items = response.result.items;
-        let resultsHtml = items.map((item) => {
-            return `
-                <div class="video-result-box">
-                    <button data-video-id="${item.id.videoId}" class="video-result p-2.5 my-2.5 bg-colour text-black">
-                        <span class="video-result-title">${item.snippet.title}</span>
-                    </button>
-                </div>`;
-        }).join("");
-    
-        $('#videoResults').html(resultsHtml);
-        $('#videoResults').on('click', '.video-result', displayVideo);
-    }
-
-    // Displays the selected video.
-    function displayVideo() {
-        const videoId = $(this).data('video-id');
-        const iframe = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
-        $('#videoContent').html(iframe);
-    }
-
-    // Sets the video to be displayed.
-    function setNewVideo(src) {
-        $('#videoContent iframe').remove();  // Remove existing iframe
-        const iframe = `<iframe width="560" height="315" src="${src}" frameborder="0" allowfullscreen=""></iframe>`;
-        $('#videoContent').append(iframe);   // Append new iframe
-    }    
-
-    // Updates the specified stat by the specified increment.
-    function updateStat(id, increment, postText='') {
-        const currentValue = parseInt($(id).text());
-        $(id).text(currentValue + increment + postText);
-    }
-
-    // Navigates to the previous or next day.
-    function navigateDate(offset) {
-        currentDate = currentDate.add(offset, 'day');
-        currentDay.text(currentDate.format("D, dddd, MMMM"));
-        loadWorkoutData(currentDate.format('YYYY-MM-DD'));
-    }
-
-    // Saves the workout data to local storage.
-    function saveWorkoutData() {
-        const today = dayjs().format('YYYY-MM-DD');
-        const allDataForToday = {
-            ...JSON.parse(localStorage.getItem(today) || "{}"),
-            [selectedExercise]: {
-                weight: $('#weight').text(),
-                reps: $('#reps').text(),
-                sets: $('#sets').text()
-            }
-        };
-        localStorage.setItem(today, JSON.stringify(allDataForToday));
-    }
-
-    // Display the current day on page load.
-    currentDay.text(dayjs().format("D, dddd, MMMM"));
-    
-    // Load the workout data for the current day.
-    function loadWorkoutData(date) {
-        const data = localStorage.getItem(date) || "{}";
-        const allDataForTheDate = JSON.parse(data);
-        const exerciseData = allDataForTheDate[selectedExercise] || {};
-    
-        $('#weight').text(exerciseData.weight || "0 KG");
-        $('#reps').text(exerciseData.reps || "0");
-        $('#sets').text(exerciseData.sets || "0");
-    }    
-
->>>>>>> c2efb4a964e907a1478f23b6b05ecfafb213c396
 });
 console.log(document.getElementById("changeSelection"))
 // Attach event listeners to change and submit buttons
@@ -511,4 +404,3 @@ function retrieveWorkoutData(){
 }
 
 retrieveWorkoutData()
-
