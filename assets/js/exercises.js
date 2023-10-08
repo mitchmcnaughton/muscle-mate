@@ -245,7 +245,120 @@ function fetchExerciseDetails(exerciseName) {
 }
 
 
+<<<<<<< Updated upstream
 //still not sure how paul is storing the data but can be easily changed!
+=======
+//code to remove list elements
+$(document).ready(function () {
+    $("#exerciseList").on("click", "li", function () {
+        $(this).remove();
+    });
+});
+
+
+// Attach the click event handler to dropdown containers
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+    dropdown.addEventListener('click', handleExerciseClick);
+});
+
+function handleExerciseClick(event) {
+    if (event.target.classList.contains("possibleExercise")) {
+        const exerciseText = event.target.textContent;
+
+        // Check if exerciseText already exists in the list
+        const existsInList = Array.from(document.querySelectorAll("#exerciseList li"))
+            .some(item => item.textContent === exerciseText);
+
+        // If the exerciseText does not exist, then add it
+        if (!existsInList) {
+            const newListItem = document.createElement("li");
+            newListItem.textContent = exerciseText;
+            newListItem.classList.add(
+                "flex",
+                "items-center",
+                "p-3",
+                "text-base",
+                "font-bold",
+                "text-gray-900",
+                "rounded-lg",
+                "bg-gray-50",
+                "hover:bg-gray-100",
+                "group-hover:shadow",
+                "dark:bg-gray-600",
+                "dark:hover:bg-gray-500",
+                "dark:text-white",
+                "cursor",
+                "exercise"
+            );
+
+            // Append the new <li> element to the "exerciseList" <ul>
+            const exerciseList = document.getElementById("exerciseList");
+            exerciseList.appendChild(newListItem);
+        }
+    }
+}
+
+
+var submitButton = $('#submitButton');
+var exerciseList = $('#exerciseList')
+var exerciseArray = [];
+const totalWorkout = [];
+
+
+
+
+//function for when use clicks the submit button
+function handleSubmit() {
+    // If no exercises have been chosen
+    if (exerciseList.children("li").length === 0) {
+        // Modal trigger to go here
+    } else {
+        
+        // Clear the exerciseArray for fresh start
+        exerciseArray = [];
+
+        // For every li push it to an array
+        $('#exerciseList li').each(function() {
+            const exerciseText = $(this).text();
+            // Check if exercise is already in the array (prevent duplicate requests)
+            if (!exerciseArray.includes(exerciseText)) {
+                exerciseArray.push(exerciseText);
+            }
+        });
+
+        console.log(exerciseArray);
+
+        // For every exercise in the array request in-depth details
+        exerciseArray.forEach(exerciseName => {
+            const apiKey2 = "Lqd4VKEgy0jW7qqvjDuV9w==QzsfbN6iCuLhD7T5";
+            $.ajax({
+                method: 'GET',
+                url: 'https://api.api-ninjas.com/v1/exercises?name=' + exerciseName,
+                headers: {
+                    'X-Api-Key': apiKey2
+                },
+                contentType: 'application/json',
+                success: function(result) {
+                    if (result && result.length > 0) {
+                        // Check if totalWorkout already contains this exercise
+                        if (!totalWorkout.some(ex => ex.name === result[0].name)) {
+                            totalWorkout.push(result[0]);
+                        }
+                    }
+                    console.log(totalWorkout);
+                    storeWorkoutData();
+                },
+                error: function ajaxError(jqXHR) {
+                    console.error('Error: ', jqXHR.responseText);
+                }
+            });
+        });
+    };
+}
+
+submitButton.click(handleSubmit);
+
+>>>>>>> Stashed changes
 
 function storeWorkoutData(){
 

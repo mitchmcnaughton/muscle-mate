@@ -34,6 +34,7 @@ $(document).ready(function() {
     const currentDay = $("#currentDay");
     let selectedExercise = $("#workoutList > li").first().text();
     let currentDate = dayjs();
+    currentDay.text(dayjs().format("D, dddd, MMMM"));
 
     // Initialize the accordion.
     initializeExerciseSelection(selectedExercise);
@@ -164,8 +165,9 @@ $(document).ready(function() {
         currentDate = currentDate.add(offset, 'day');
         currentDay.text(currentDate.format("D, dddd, MMMM"));
         loadWorkoutData(currentDate.format('YYYY-MM-DD'));
-    }
+    }    
 
+<<<<<<< Updated upstream
 // Saves the workout data to local storage.
 function saveWorkoutData() {
     const date = currentDate.format('YYYY-MM-DD');
@@ -191,5 +193,30 @@ function loadWorkoutData(date) {
     $('#reps').text(workoutForTheDate.reps || "0");
     $('#sets').text(workoutForTheDate.sets || "0");
 }
+=======
+    function saveWorkoutData() {
+        const today = currentDate.format('YYYY-MM-DD'); // Use currentDate here
+        const allDataForToday = JSON.parse(localStorage.getItem(today) || "{}");
+        
+        allDataForToday[selectedExercise] = {
+            weight: $('#weight').text(),
+            reps: $('#reps').text(),
+            sets: $('#sets').text()
+        };
+        
+        localStorage.setItem(today, JSON.stringify(allDataForToday));
+    }
+     
+    function loadWorkoutData(date) {
+        const data = localStorage.getItem(date) || "{}";
+        const allDataForTheDate = JSON.parse(data);    
+        const exerciseData = allDataForTheDate[selectedExercise] || {};
+        
+        $('#weight').text(exerciseData.weight || "0 KG");
+        $('#reps').text(exerciseData.reps || "0");
+        $('#sets').text(exerciseData.sets || "0");
+    }
+      
+>>>>>>> Stashed changes
 
 });
