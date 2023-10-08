@@ -163,7 +163,7 @@ function updateDropdownOptions(muscle) {
                 const option = document.createElement('a');
                 option.href = '#'; 
                 option.setAttribute('data-exercise-id', exerciseId);
-                option.classList.add('possibleExercise','block', 'px-4', 'py-2', 'text-gray-800', 'hover:bg-gray-100', 'dark:text-white', 'dark:hover:bg-gray-700');
+                option.classList.add('block', 'px-4', 'py-2', 'text-gray-800', 'hover:bg-gray-100', 'text-white', 'hover:bg-gray-700');
                 option.textContent = exerciseName;
                 dropdown.appendChild(option);
 
