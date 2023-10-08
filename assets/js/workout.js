@@ -167,33 +167,6 @@ $(document).ready(function() {
         loadWorkoutData(currentDate.format('YYYY-MM-DD'));
     }    
 
-<<<<<<< Updated upstream
-// Saves the workout data to local storage.
-function saveWorkoutData() {
-    const date = currentDate.format('YYYY-MM-DD');
-
-    // Retrieve the exercise data for the selected exercise or initialize a new object if it doesn't exist
-    let exerciseData = JSON.parse(localStorage.getItem(selectedExercise) || "{}");
-
-    exerciseData[date] = {
-        weight: $('#weight').text(),
-        reps: $('#reps').text(),
-        sets: $('#sets').text()
-    };
-
-    localStorage.setItem(selectedExercise, JSON.stringify(exerciseData));
-}
-
-// Load the workout data for the specified date.
-function loadWorkoutData(date) {
-    const exerciseData = JSON.parse(localStorage.getItem(selectedExercise) || "{}");
-    const workoutForTheDate = exerciseData[date] || {};
-
-    $('#weight').text(workoutForTheDate.weight || "0 KG");
-    $('#reps').text(workoutForTheDate.reps || "0");
-    $('#sets').text(workoutForTheDate.sets || "0");
-}
-=======
     function saveWorkoutData() {
         const today = currentDate.format('YYYY-MM-DD'); // Use currentDate here
         const allDataForToday = JSON.parse(localStorage.getItem(today) || "{}");
@@ -217,6 +190,5 @@ function loadWorkoutData(date) {
         $('#sets').text(exerciseData.sets || "0");
     }
       
->>>>>>> Stashed changes
 
 });
