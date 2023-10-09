@@ -3,13 +3,16 @@
 ## Description
 MuscleMate is a dynamic website that recommends tailored exercises to users and provides accompanying video guidance for each workout. Beyond exercise discovery, it empowers users to log their exercises, enabling them to monitor their progress and compare with past performances in a streamlined and interactive manner.
 
-<!-- add link to screenshot -->
+<img width="959" alt="Screenshot 2023-10-09 155335" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/0bfbcfdf-a375-42d6-9cd4-da200fb2ab3b">
+<img width="929" alt="Screenshot 2023-10-09 160441" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/e1038a68-6778-48a7-a58d-e1505546f42e">
+<img width="957" alt="Screenshot 2023-10-09 160617" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/ffe5a5c0-18e5-4be7-ae57-498dd099a21d">
+<img width="950" alt="Screenshot 2023-10-09 160704" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/8f5608f5-b360-4650-87d0-ef26807f6b94">
 
 ## Installation
-The website can be viewed via the URL: <!-- add deployed URL -->
+The website can be viewed via the URL: (https://mitchmcnaughton.github.io/muscle-mate/)
 
 ## Usage
-
+MuscleMate is used by fitness enthusiasts who want to discover new exerckises tailored to them, log their workouts, and track their progress.
 
 ## Credits
 https://developers.google.com/youtube
