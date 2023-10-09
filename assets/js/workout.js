@@ -1,7 +1,7 @@
 function retrieveWorkoutData() {
     // Retrieve the exercises data from localStorage
     const totalWorkoutData = localStorage.getItem('totalWorkoutData');
-    const totalWorkout = JSON.parse(totalWorkoutData);
+    const totalWorkout = JSON.parse(totalWorkoutData)[0];
 
     if (totalWorkout) {
         const exerciseList = document.getElementById('workoutList');
