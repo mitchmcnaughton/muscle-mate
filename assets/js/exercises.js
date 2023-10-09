@@ -508,20 +508,7 @@ function handleExerciseClick(event) {
         // Create a new <li> element with the exercise text and classes
         var newListItem = document.createElement("li");
         newListItem.textContent = exerciseText;
-        newListItem.classList.add(
-            "flex",
-            "items-center",
-            "p-3",
-            "text-base",
-            "font-bold",
-            "rounded-lg",
-            "group-hover:shadow",
-            "bg-gray-600",
-            "hover:bg-gray-500",
-            "text-white",
-            "cursor-pointer",
-            "exercise"
-        );
+        newListItem.classList.add("flex","items-center","p-3","text-base","font-bold","rounded-lg","group-hover:shadow","bg-gray-600","hover:bg-gray-500","text-white","cursor-pointer","exercise");
 
         // Append the new <li> element to the "exerciseList" <ul>
         var exerciseList = document.getElementById("exerciseList");
