@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Options</title>
+        <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="../assets/css/reset.css">
         <link rel="stylesheet" href="../assets/css/style.css">
-        <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
     <header class= "page-header align-middle bg-black text-6xl w-full py-8 text-center">
@@ -17,31 +17,31 @@
 
     <body class="bg-colour max-w-full">
         <div class="flex justify-center items-start">
-            <div id="experienceLevel" class="modal p-4 shadow-lg rounded-lg max-w-sm overflow-hidden bg-gray-700">
+            <div id="experienceLevel" class="modal bg-colour p-4 shadow-lg rounded-lg max-w-sm bg-white overflow-hidden">
                 <div class="modal-content">
-                    <h2 class="text-2x1 text-white text-2xl">What is your experience level?</h2>
-                    <button class="option bg-gray-600 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded" id="beginner">Beginner</button>
-                    <button class="option bg-gray-600 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded" id="intermediate">Intermediate</button>
-                    <button class="option bg-gray-600 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded" id="expert">Expert</button>
+                    <h2 class="text-2x1">What is your experience level?</h2>
+                    <button class="option bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="beginner">Beginner</button>
+                    <button class="option bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="intermediate">Intermediate</button>
+                    <button class="option bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="expert">Expert</button>
                 </div>
             </div>
         </div>  
 
-        <div id="equipmentType" class="modal p-4 shadow-lg rounded-lg max-w-sm overflow-hidden bg-gray-700">
+        <div id="equipmentType" class="hidden modal bg-colour p-4 shadow-lg rounded-lg max-w-sm bg-white overflow-hidden">
             <div class="modal-content">
-                <h2 class="text-2x1 text-white text-2xl">Where will you be working out?</h2>
-                <button class="option bg-gray-600 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded" id="home">At home</button>
-                <button class="option bg-gray-600 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded" id="gym">At the gym</button>
+                <h2 class="text-2x1">Where will you be working out?</h2>
+                <button class="option bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="home">At home</button>
+                <button class="option bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="gym">At the gym</button>
             </div>
         </div>
 
-        <div id="userSelection" class="modal p-4 shadow-lg rounded-lg max-w-sm mx-auto overflow-hidden bg-gray-700" style="display: none;">
+        <div id="userSelection" class="hidden modal bg-colour p-4 shadow-lg rounded-lg max-w-sm mx-auto bg-white overflow-hidden" style="display: none;">
             <div class="modal-content">
                 <h2 class="text-2x1">Your selections:</h2>
                 <p>Experience level: <span id="experience"></span></p>
                 <p>Equipment: <span id="equipment"></span></p>
-                <button class="option bg-gray-600 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded" id="changeSelection">Change</button>
-                <button class="option bg-gray-600 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded" id="submitButton">Submit</button>
+                <button class="option bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="changeSelection">Change</button>
+                <button class="option bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded" id="submitButton">Submit</button>
             </div>
         </div>
 
