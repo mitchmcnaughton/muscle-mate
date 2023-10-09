@@ -599,7 +599,7 @@ function handleSave() {
 };
 
 
-//click event for  save button
+//click event for save button
 saveButton.click(handleSave);
 
 //handling sumbit button
