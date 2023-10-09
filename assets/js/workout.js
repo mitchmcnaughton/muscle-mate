@@ -7,7 +7,7 @@ function retrieveWorkoutData() {
         
         // Loop through the exercise data
         for (let i = 0; i < totalWorkout.length; i++) {
-            const exerciseName = totalWorkout[0].name;
+            const exerciseName = totalWorkout[i].name;
             
             const listItem = document.createElement('li');
             listItem.textContent = exerciseName;
