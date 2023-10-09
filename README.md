@@ -5,8 +5,8 @@ MuscleMate is a dynamic website that recommends tailored exercises to users and 
 
 <img width="959" alt="Screenshot 2023-10-09 155335" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/0bfbcfdf-a375-42d6-9cd4-da200fb2ab3b">
 <img width="945" alt="Screenshot 2023-10-09 181329" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/8d49eca3-1cef-4e7a-bc90-ead5a509c3a3">
-<img width="957" alt="Screenshot 2023-10-09 160617" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/ffe5a5c0-18e5-4be7-ae57-498dd099a21d">
-<img width="950" alt="Screenshot 2023-10-09 160704" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/8f5608f5-b360-4650-87d0-ef26807f6b94">
+<img width="935" alt="Screenshot 2023-10-09 181510" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/9365fcb5-8e5f-4d68-bea5-e5b04740c4ea">
+<img width="945" alt="Screenshot 2023-10-09 181538" src="https://github.com/mitchmcnaughton/muscle-mate/assets/142005319/1d2389f0-2b0b-4832-a8b2-e3c93eb82adf">
 
 ## Installation
 The website can be viewed via the URL: (https://mitchmcnaughton.github.io/muscle-mate/)
