@@ -337,7 +337,7 @@ function handleSave(){
                     contentType: 'application/json',
                     success: function(result) {
                         console.log(result);
-                        totalWorkout.push(result);
+                        totalWorkout.push(result[0]);
                         console.log(totalWorkout)
                         storeWorkoutData();
                         submitButton.css("display", "block");
