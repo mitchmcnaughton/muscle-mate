@@ -54,8 +54,7 @@ console.log(document.getElementById("changeSelection"))
 
 // Attach event listener to change button
 changeButtonModal.addEventListener("click", function () {
-    selectionsMade = false;
-    openModal(experienceLevelModal);
+    location.reload()
 });
 
 // Attach event listener to submit button
