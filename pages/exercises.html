@@ -167,8 +167,25 @@
             <ul id="exerciseList" class="text-white">
                 <!--exercises chosen go here-->
             </ul>
-                <button type="submit" id="submitButton" class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded absolute bottom-0 right-0">Submit</button>
-                <button type="submit" id="submitButton" class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded absolute bottom-0 right-0">Submit</button>
+
+                <button type="submit" id="saveButton" class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded absolute bottom-0 left-0">Save</button>
+                <button type="submit" id="submitButton" class="hidden bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded absolute bottom-0 right-0">Submit</button>
+            </div>
+        </div>
+
+        <div id="myModal" class="fixed inset-0 flex items-center justify-center z-10 hidden">
+            <div class="bg-white rounded-lg p-8 shadow-md w-1/2">
+                <h2 class="text-xl font-semibold mb-4">Please select atleast 1 Exercise</h2>
+                <p></p>
+                <button id="closeModalButton" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Close Modal</button>
+            </div>
+        </div>
+
+        <div id="saveModal" class="fixed inset-0 flex items-center justify-center z-10 hidden">
+            <div class="bg-white rounded-lg p-8 shadow-md w-1/2">
+                <h2 class="text-xl font-semibold mb-4">Your Exercises have been saved!</h2>
+                <p></p>
+                <button id="closeSaveModalButton" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Close</button>
             </div>
         </div>
         

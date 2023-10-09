@@ -279,7 +279,7 @@ function handleExerciseClick(event) {
             "dark:bg-gray-600",
             "dark:hover:bg-gray-500",
             "dark:text-white",
-            "cursor",
+            "cursor-pointer",
             "exercise"
         );
         
@@ -295,18 +295,28 @@ document.addEventListener("click", handleExerciseClick);
 
 
 var submitButton = $('#submitButton');
-var exerciseList = $('#exerciseList')
+var saveButton = $('#saveButton');
+var exerciseList = $('#exerciseList');
 var exerciseArray = [];
 const totalWorkout = [];
+var closeModalButton = document.getElementById("closeModalButton");
+var closeSaveModalButton = document.getElementById("closeSaveModalButton");
+var modal = document.getElementById("myModal");
+var saveModal = document.getElementById("saveModal");
 
 
 
 
 //function for when use clicks the submit button
-function handleSubmit(){
+function handleSave(){
     //if no exercises have been chosen
     if (exerciseList.children("li").length === 0) {
-        //modal triger to go here
+        //modal trigger
+        modal.classList.remove("hidden");
+
+        closeModalButton.addEventListener("click", function () {
+            modal.classList.add("hidden");
+        });
     } else {
         
         //for every li push it to an array
@@ -328,26 +338,39 @@ function handleSubmit(){
                         totalWorkout.push(result);
                         console.log(totalWorkout)
                         storeWorkoutData();
+                        submitButton.css("display", "block");
+                        
                     },
                     error: function ajaxError(jqXHR) {
                         console.error('Error: ', jqXHR.responseText);
                     }
                 });
-
-            } 
-            
-
-            ;
+            }   saveModal.classList.remove("hidden");
+                console.log("yes")
+                closeSaveModalButton.addEventListener("click", function () {
+                saveModal.classList.add("hidden");
+            });;
     };
     
 };
 
+
+
+saveButton.click(handleSave);
+
+
+function handleSubmit (){
+    if (exerciseList.children("li").length === 0) {
+        
+    } else {
+    window.location.href = "https://mitchmcnaughton.github.io/muscle-mate/";
+    }
+
+};
+
 submitButton.click(handleSubmit);
 
-
 function storeWorkoutData(){
-
-    
     
     const totalWorkoutData = JSON.stringify(totalWorkout);
 
@@ -355,4 +378,4 @@ function storeWorkoutData(){
     
     console.log('Workout data has been stored in localStorage');
    
-}
+};
